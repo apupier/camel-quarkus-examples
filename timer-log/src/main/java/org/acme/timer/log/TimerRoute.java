@@ -16,8 +16,6 @@
  */
 package org.acme.timer.log;
 
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 
 public class TimerRoute extends RouteBuilder {
@@ -25,12 +23,6 @@ public class TimerRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         from("timer:foo?period=1000")
-                .process(new Processor() {
-                    @Override
-                    public void process(Exchange exchange) throws Exception {
-                        System.out.println("for the demo breakpoint for Java debugger");
-                    }
-                })
-                .log("Hello World 5");
+                .log("Hello World");
     }
 }

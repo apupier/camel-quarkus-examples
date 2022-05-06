@@ -1,0 +1,20 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Camel Quarkus application with debug Profile",
+			"type": "shell",
+			"command": "mvn", // mvn binary of Maven must be available on command-line
+			"args": [
+				"compile",
+				"quarkus:dev",
+				"-Pcamel.debug"
+			],
+			"problemMatcher": "$camel.debug.problemMatcher",
+			"presentation": {
+				"reveal": "always"
+			},
+			"isBackground": true // Must be set as background as the Maven commands doesn't return until the Camel application stops.
+		}
+	]
+}
