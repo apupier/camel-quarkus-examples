@@ -8,9 +8,6 @@ release.properties
 dependency-reduced-pom.xml
 
 # Eclipse
-.project
-.classpath
-.settings/
 bin/
 
 # IDEA
