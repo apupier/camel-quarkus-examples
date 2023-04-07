@@ -25,7 +25,7 @@ public class TimerRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("timer:foo?period={{timer.period}}")
+        from("timer:foo?period={{timer.period}}&synchronous=true")
                 .bean("greeting", "greet")
                 .to("log:timer");
     }

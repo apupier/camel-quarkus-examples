@@ -1,0 +1,12 @@
+{
+    "version" : "0.2.0",
+    "configurations": [
+        {
+            "name": "Run with Camel Debugger",
+			"type": "apache.camel",
+			"request": "attach",
+			"preLaunchTask": "Start Camel application with Maven Quarkus Dev with camel.debug profile" // This must match the label provided as task
+
+        }
+    ]
+}

@@ -17,7 +17,9 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>camel-quarkus-examples-timer-log</artifactId>
@@ -118,7 +120,8 @@
                     <artifactId>formatter-maven-plugin</artifactId>
                     <version>${formatter-maven-plugin.version}</version>
                     <configuration>
-                        <configFile>${maven.multiModuleProjectDirectory}/eclipse-formatter-config.xml</configFile>
+                        <configFile>
+                            ${maven.multiModuleProjectDirectory}/eclipse-formatter-config.xml</configFile>
                         <lineEnding>LF</lineEnding>
                     </configuration>
                 </plugin>
@@ -201,7 +204,8 @@
                             <kt>SLASHSTAR_STYLE</kt>
                         </mapping>
                         <headerDefinitions>
-                            <headerDefinition>${maven.multiModuleProjectDirectory}/license-properties-headerdefinition.xml</headerDefinition>
+                            <headerDefinition>
+                                ${maven.multiModuleProjectDirectory}/license-properties-headerdefinition.xml</headerDefinition>
                         </headerDefinitions>
                     </configuration>
                 </plugin>
@@ -284,6 +288,21 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>camel.debug</id>
+            <activation>
+                <property>
+                    <name>camel.debug</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.camel.quarkus</groupId>
+                    <artifactId>camel-quarkus-debug-deployment</artifactId>
+                </dependency>
+            </dependencies>
         </profile>
     </profiles>
 

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "How to Camel Debug Camel Quarkus application",
+  "steps": [
+    {
+      "title": "VS Code Debug adapter extension required",
+      "description": "VS Code Debug adapter extension is required."
+    },
+    {
+      "title": "Camel Quarkus version requirement",
+      "file": "pom.xml",
+      "description": "Camel Quarkus 2.12+ is required to follow the steps described in this tour.",
+      "line": 27
+    },
+    {
+      "title": "Specific dependency for Camel debugger",
+      "file": "pom.xml",
+      "description": "Specific dependency `camel-quarkus-debug-deployment` must be added. As it should not be used in production, a good way to achieve it is to use a Maven profile.",
+      "line": 303
+    },
+    {
+      "title": "VS Code task",
+      "file": ".vscode/tasks.json",
+      "description": "This specific task allows to run the Camel Quarkus application activating the `camel.debug` profile that we have seen in the previous step of this Code Tour.\n\nNote: This specific task is provided as completion by VS Code Debug adapter.",
+      "line": 11
+    },
+    {
+      "title": "VS Code Launch configuration",
+      "file": ".vscode/launch.json",
+      "description": "This is a specific Launch configuration for debugging using the Camel textual debugger.",
+      "line": 6
+    },
+    {
+      "title": "PrelaunchTask of the launch configuration",
+      "file": ".vscode/launch.json",
+      "description": "We can notice that the `preLaunchTask` has the label of the task that we have seen previously in the Code Tour.",
+      "line": 8
+    },
+    {
+      "title": "The Camel route",
+      "file": "src/main/java/org/acme/timer/log/TimerRoute.java",
+      "description": "Here we can find the Camel Route defined with Java DSL.",
+      "line": 24
+    },
+    {
+      "title": "Debug",
+      "file": "src/main/java/org/acme/timer/log/TimerRoute.java",
+      "description": "For Instance, a breakpoint can be set on the line `to(\"log:timer\")`. For that click in the left ruler band of the line to have a red dot.\n\nThen you can run the application in debug mode:\n* Go to `Run and Debug` view (`Ctrl+Shift+D`)\n* Click on the green arrow\n* Wait few seconds, the debugger will stop on your breakpoint\n* Enjoy!",
+      "line": 31
+    }
+  ]
+}
